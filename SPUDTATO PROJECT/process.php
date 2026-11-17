@@ -63,8 +63,11 @@ if ($_SERVER["REQUEST_METHOD"] != "POST"){
         echo "<p>Customer: " . $name . "</p>";
         echo "<p>Customer type: " . $type . "</p>";
 
-        echo "<h3>Item Ordered</h3>";
-        echo "<p>" . $quantity . " x " . $product["name"] . $addonText . " - Php " . $unitPrice . "</p>";
+        echo "<h3>Items Ordered</h3>";
+
+        for ($i = 1; $i <= $quantity; $i++){
+            echo "<p>#" . $i . " - " . $product["name"] . $addonText . " - Php " . $unitPrice . "</p>";
+        }
 
         echo "<h3>Bill</h3>";
         echo "<p>Subtotal: Php " . $subtotal . "</p>";
@@ -79,6 +82,30 @@ if ($_SERVER["REQUEST_METHOD"] != "POST"){
         } else{
             echo "<p class='success'>Budget is sufficient!</p>";
             echo "<p>Change: Php " . ($budget - $total) . "</p>";
+
+            echo "<h3>Cooking Batches</h3>";
+            $left = $quantity;
+            $batch = 0;
+            do{
+                $batch++;
+                $left = $left - $batchSize;
+                echo "<p>Batch " . $batch . " is cooking...</p>";
+            } while ($left > 0);
+
+            $extra = $quantity % $batchSize;
+            if ($extra == 0){
+                $lastBatch = $batchSize;
+            } else{
+                $lastBatch = $extra;
+            }
+            echo "<p>Last batch has " . $lastBatch . " item(s).</p>";
+
+            echo "<h3>Preparation Progress</h3>";
+            $counter = 1;
+            while ($counter <= $quantity){
+                echo "<p>Preparing item " . $counter . " of " . $quantity . "</p>";
+                $counter++;
+            }
 
             echo "<h2 class='success'>Thank you for buying, " . $name . "!</h2>";
             echo "<p>Please come again to " . $storeName . ".</p>";
