@@ -9,6 +9,28 @@ $storeAge = date("Y") - $yearOpened;
 echo "<h2>Welcome to " . $storeName . "!</h2>";
 echo "<p>Serving spuds for " . $storeAge . " year(s). Open " . $openDays[0] . " to " . $openDays[5] . ".</p>";
 
+$today = date("l");
+
+$openToday = $isOpen && $today != "Sunday";
+
+if ($openToday){
+    echo "<p class='success'>We are open today!</p>";
+} else{
+    echo "<p class='error'>We are closed today.</p>";
+}
+
+$special = match ($today){
+    "Monday"    => "Cheesy Potato Heaven",
+    "Tuesday"   => "Garlic Bacon Bomb",
+    "Wednesday" => "Ultimate Chili Cheese Con Carne",
+    "Thursday"  => "Garlic Cheese Delight",
+    "Friday"    => "Cheezy Garlic Bacon Bomb",
+    "Saturday"  => "Bacony Cheese Melt",
+    default     => "None - we are closed. See you tomorrow!",
+};
+echo "<h3>Spud of the Day (" . $today . ")</h3>";
+echo "<p>" . $special . "</p>";
+
 echo "<h3>Featured Products</h3>";
 echo "<p>" . $products["SP1"]["name"] . " - Php " . $products["SP1"]["price"] . "</p>";
 echo "<p>" . $products["SP2"]["name"] . " - Php " . $products["SP2"]["price"] . "</p>";
