@@ -75,5 +75,7 @@
 <main>
     <h1><?php echo $storeName; ?></h1>
     <p><?php echo $tagline; ?></p>
-    <p><a href="index.php#menu">Menu</a> | <a href="index.php#order">Order</a></p>
+    <p><a href="index.php#menu">Menu</a> | <a href="index.php#order">Order</a> | <a href="stocks.php">Stock</a></p>
     <hr>
+
+    
