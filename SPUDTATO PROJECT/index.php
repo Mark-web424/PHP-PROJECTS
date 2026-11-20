@@ -45,14 +45,6 @@ echo "<p>Discount: Php " . $discount . "</p>";
 echo "<p>Total: Php " . $total . "</p>";
 
 include "menu.php";
-
-echo "<h3>Next fresh batch in:</h3>";
-$minutes = 5;
-while ($minutes > 0){
-    echo $minutes . " min... ";
-    $minutes--;
-}
-echo "<p class='success'>Fresh batch is ready!</p>";
 ?>
 
 <h2 id="order">Place Your Order</h2>
