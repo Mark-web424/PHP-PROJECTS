@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-//stocks.php -stock monitoring using functions
+//functions.php -stock monitoring using functions
 
 require "rates.php";
 
